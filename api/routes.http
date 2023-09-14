@@ -8,20 +8,20 @@ POST http://localhost:3333/videos
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Disposition: form-data; name="file"; filename="example-2.mp3"
 Content-Type: audio/mpeg
 
-< ./example.mp3
+< ./example-2.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
 ###
 
 # @name create-transcription
-POST http://localhost:3333/videos/81ff05bc-6b9b-467a-8a2b-dd954a7b2240/transcription
+POST http://localhost:3333/videos/2d4a86b6-63b3-480c-b1b7-b81d88f16d61/transcription
 Content-Type: application/json
 
 {
-  "prompt": "clean architecture, ddd"
+  "prompt": "Módulo Fiscal nas indústrias, regisme de tributação, sped, sintegra"
 }
 
 ###
@@ -31,7 +31,7 @@ POST http://localhost:3333/ai/complete
 Content-Type: application/json
 
 {
-  "videoId": "81ff05bc-6b9b-467a-8a2b-dd954a7b2240",
+  "videoId": "a1488233-fa1b-4392-9b47-70bf4f93e31c",
   "temperature": 0.5,
-  "template": "Gere um resumo da transcrição do vídeo informada a seguir: '''{transcription}'''"
+  "prompt": "Seu papel é gerar três títulos para um vídeo do YouTube. Abaixo você receberá uma transcrição desse vídeo, use essa transcrição para gerar os títulos. Abaixo você também receberá uma lista de títulos, use essa lista como referência para os títulos a serem gerados. Os títulos devem ter no máximo 60 caracteres. Os títulos devem ser chamativos e atrativos para maximizar os cliques. Retorne APENAS os três títulos em formato de lista como no exemplo abaixo: ''' - Título 1 - Título 2 - Título 3 ''' Transcrição: ''' {transcription} '''"
 }
